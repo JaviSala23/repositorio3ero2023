@@ -1,0 +1,24 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>310</x><y>80</y><w>100</w><h>230</h></coordinates><panel_attributes>Usuario
+-
+nombre:String
+contra:String
+palabra:String
+color:String
+tamaño:String
+-
+registro()
+indentificarse()
+recuperarContra()
+crearCanal()
+unirCanal()
+cambiarColor()
+enviarMensaje()
+recibirMensaje()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>80</y><w>100</w><h>120</h></coordinates><panel_attributes>BaseDatos
+-
+bd: String
+conexion: String
+cursor: String
+-
+conectar()
+actualizarBD</panel_attributes><additional_attributes></additional_attributes></element></diagram>

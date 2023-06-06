@@ -1,0 +1,27 @@
+Bienvenido a e/bin/python3
+             Seleccione una opcion:
+
+l nuevo chat de CLI de ISBH anexo Cruz alta
+
+Opciones:
+  1- Ident.
+  2- Regis.
+  3- No recuerdo mi contra.
+  4- Salir	
+1
+
+Usuairo: Javi
+Contraseña: ISBH24
+
+2
+
+Esc. de Usuario: 
+Esc. una contra:
+Esc. una palabra sec:
+
+3
+esc. la palabra clave:
+
+4
+text de salida
+funcion quit()
