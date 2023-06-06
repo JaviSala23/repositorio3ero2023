@@ -17,6 +17,12 @@ class Usuario:
     def identificarse(self):
         base=BaseDatos()
         argumento="SELECT * FROM Usuarios WHERE nombre='"+self.nombre+"' AND password ='"+self.contra+"'"
+        fila=base.consultar(argumento,1)
+        return fila
+    
+    def verUsuarios(self):
+        base=BaseDatos()
+        argumento="SELECT nombre FROM Usuarios"
         fila=base.consultar(argumento)
         return fila
     

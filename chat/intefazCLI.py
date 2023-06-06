@@ -17,8 +17,9 @@ while True:
                 Seleccione una opcion:
                 1- Identificarse
                 2- Registrarse
-                3- No recuerdo mi contraseña
-                4- Salir
+                3- Traer usuarios existentes
+                4- No recuerdo mi contraseña
+                5- Salir
                 \ṇ̣
                 Opcion: 
                 '''))
@@ -38,10 +39,15 @@ while True:
         usuario.contra= getpass.getpass('Ingrese una contraseña: ')
         usuario.palabra= input('Ingrese una palabra clave: ')
         usuario.registro()
+        
     elif opcion==3:
+        usuarios=usuario.verUsuarios()
+        print(usuarios)
+        
+    elif opcion==4:
         usuario.recuperarContra()
         palabra=input('Palabra clave: ')
-    elif opcion==4:
+    elif opcion==5:
         print('Gracias por usar el chat. que tenga un buen dia.')
         quit()    
     else: 
