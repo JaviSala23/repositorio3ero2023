@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>20</y><w>100</w><h>230</h></coordinates><panel_attributes>Usuario
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>20</y><w>100</w><h>310</h></coordinates><panel_attributes>Usuario
 -
 nombre:String
 contra:String
@@ -8,8 +8,11 @@ tamaño:String
 -
 registro()
 indentificarse()
+verUsuario()
+consultarPalabraClave()
 recuperarContra()
 crearCanal()
+verCanales()
 unirCanal()
 cambiarColor()
 enviarMensaje()
