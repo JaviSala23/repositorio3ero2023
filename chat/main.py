@@ -1,5 +1,7 @@
 from lib.usuario import Usuario
+from lib.enlase import Servidor
 import getpass
+
 
 
 
@@ -87,7 +89,17 @@ def chat(usuario):
                     '''))
         
         if opcion==1:
-            print('crea canal')
+            canal1=Servidor()
+            canal1.puerto=input("Ingrese un puerto de servicio desde el 8000 al 8040: ")
+            canal1.nombre=input("Ingrese un nombre para su cana: ")
+            retorno=canal1.crearCanal()
+            if retorno:
+                print("El canal : '"+ canal1.nombre + "' ha sido creado.")
+                
+            else:
+                print("No se pudo crear el canal")
+            
+        
         elif opcion==2:
             print('canales')
         elif opcion==2:

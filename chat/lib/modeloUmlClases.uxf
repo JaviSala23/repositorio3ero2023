@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>20</y><w>100</w><h>310</h></coordinates><panel_attributes>Usuario
+<diagram program="umletino" version="15.1"><zoom_level>14</zoom_level><element><id>UMLClass</id><coordinates><x>14</x><y>0</y><w>140</w><h>392</h></coordinates><panel_attributes>Usuario
 -
 nombre:String
 contra:String
@@ -17,11 +17,23 @@ unirCanal()
 cambiarColor()
 enviarMensaje()
 recibirMensaje()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>20</y><w>100</w><h>120</h></coordinates><panel_attributes>BaseDatos
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>14</x><y>434</y><w>140</w><h>168</h></coordinates><panel_attributes>BaseDatos
 -
 bd: String
 conexion: String
 cursor: String
 -
 conectar()
-actualizarBD</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+actualizarBD</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>28</y><w>112</w><h>280</h></coordinates><panel_attributes>Servidor
+-
+protocolo
+anfitrion
+puerto
+enlase
+nombre
+tamBuffer
+-
+crearCanal()
+gestConEntr()
+recibirMen()
+enviarMen()</panel_attributes><additional_attributes></additional_attributes></element></diagram>
