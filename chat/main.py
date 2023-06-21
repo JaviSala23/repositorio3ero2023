@@ -1,7 +1,7 @@
 from lib.usuario import Usuario
 from lib.enlase import Servidor
 import getpass
-
+from threading import Thread
 
 
 
@@ -93,8 +93,16 @@ def chat(usuario):
             canal1.puerto=input("Ingrese un puerto de servicio desde el 8000 al 8040: ")
             canal1.nombre=input("Ingrese un nombre para su cana: ")
             retorno=canal1.crearCanal()
+            
+           
             if retorno:
                 print("El canal : '"+ canal1.nombre + "' ha sido creado.")
+                print("Esperando conexiones...")
+                canal1.enlase.listen(5)
+                ACCEPT_THREAD = Thread(target=canal1.gestConEntr)
+                ACCEPT_THREAD.start()
+                ACCEPT_THREAD.join()
+                canal1.enlase.close()
                 
             else:
                 print("No se pudo crear el canal")
