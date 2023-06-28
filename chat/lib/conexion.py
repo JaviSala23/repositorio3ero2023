@@ -2,7 +2,7 @@ import sqlite3
 
 class BaseDatos():
     def __init__(self):
-        self.bd="chat/chat.sqlite" 
+        self.bd="chat.sqlite" 
         self.conexion=""
         self.cursor=""
         

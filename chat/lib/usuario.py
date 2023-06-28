@@ -42,21 +42,5 @@ class Usuario:
         base.actualizarBD(argumento)
         del base
         
-    def crearCanal():
-        pass
-    
-    def verCanales():
-        pass
-    
-    def unirCanal():
-        pass
-    
-    def cambiarColor():
-        pass
-    
-    def enviarMensaje():
-        pass
-        
-    def recibirMensaje():
-        pass
+
     

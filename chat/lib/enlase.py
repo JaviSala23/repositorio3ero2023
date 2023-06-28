@@ -18,7 +18,7 @@ class Servidor():
                 addresses = [i['addr'] for i in ifaddresses(ifaceName).setdefault(AF_INET, [{'addr':'No IP addr'}] )]
                 ip=addresses
             self.anfitrion=ip[0]
-            
+            print(self.anfitrion)
             self.enlase = socket.socket(self.protocolo[0],self.protocolo[1])
             self.enlase.bind((self.anfitrion, int(self.puerto)))
             return True
@@ -30,7 +30,7 @@ class Servidor():
         while True:
             cliente, direccion_cliente = self.enlase.accept()
             print("%s:%s se ha conectado." % direccion_cliente)
-            cliente.send(bytes(f"Bienvendio a el chat: {self.nombre}! "))
+            cliente.send(bytes("Bienvendio a el chat","utf-8"))
             self.direcciones[cliente] = direccion_cliente
             Thread(target=self.manejoCliente, args=(cliente,)).start()
         
@@ -38,39 +38,52 @@ class Servidor():
     def manejoCliente(self,cliente):
         nombre = cliente.recv(self.tamBuffer).decode("utf8")
         msjBienvenda = 'Bienvendio %s! Si quiere salir escriba {quit} .' % nombre
-        cliente.send(bytes(msjBienvenda))
+        cliente.send(bytes(msjBienvenda,'utf-8'))
         msj = "%s se ha unido al chat!" % nombre
-        self.broadcast(bytes(msj))
-        self.clientes[cliente] = nombre
+        self.broadcast(msj)
+        self.direcciones[cliente] = nombre
 
         while True:
             msj = cliente.recv(self.tamBuffer)
             
-            if msj != bytes("{quit}"):
+            if msj != bytes("{quit}",'utf-8'):
+                    msj=msj.decode('utf-8')
                     print(nombre+":"+ msj)
-                    self.broadcast(msj, nombre+": ")
+                    self.broadcast(msj,nombre+": ")
             else:
                 cliente.send(bytes("{quit}"))
                 cliente.close()
-                del self.clientes[cliente]
-                self.broadcast(bytes("%s ha dejado el chat." % nombre))
+                del self.direcciones[cliente]
+                self.broadcast("%s ha dejado el chat." % nombre.endswith())
                 break
                 
     
     def broadcast(self,msj, prefix=""):
-        for sock in self.clientes:
-            sock.send(bytes(prefix)+msj)
+        for sock in self.direcciones:
+            sock.send(bytes(prefix+msj,'utf-8'))
         
     
 
-
-
-
-
-
-
-
-
 class Cliente():
     def __init__(self):
-        pass
+        self.protocolo=(socket.AF_INET, socket.SOCK_STREAM)
+        self.ip=""
+        self.puerto=""
+        self.canal=""
+        self.enlase=""
+        self.tamBuffer=1024
+        
+    def conectar(self):
+        self.enlase = socket.socket(self.protocolo[0],self.protocolo[1])
+        self.enlase.connect((self.ip, int(self.puerto)))
+       
+    def enviarMsj(self):
+        while True:
+            mensaje=input(">>")
+            self.enlase.send(bytes(mensaje, 'utf-8'))
+    def recibirMsj(self):
+        while True:
+            msj = self.enlase.recv(self.tamBuffer)
+            print(msj)
+            
+          
