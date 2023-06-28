@@ -79,11 +79,12 @@ class Cliente():
        
     def enviarMsj(self):
         while True:
-            mensaje=input(">>")
+            mensaje=input()
             self.enlase.send(bytes(mensaje, 'utf-8'))
     def recibirMsj(self):
         while True:
             msj = self.enlase.recv(self.tamBuffer)
-            print(msj)
+            msj=msj.decode('utf-8')
+            
             
           
